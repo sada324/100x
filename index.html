@@ -11,7 +11,7 @@
 :root {
   --cream: #f4efe6;
   --ink: #080808;
-  --gold: #c8a045;
+  --gold: #8b5cf6;
   --glass-bg: rgba(8,8,8,0.52);
   --glass-border: rgba(255,255,255,0.09);
 }
@@ -267,13 +267,20 @@ input:focus { border-color: var(--gold); background: rgba(255,255,255,0.08); }
   background: var(--gold); border: none; border-radius: 3px;
   font-family: 'Instrument Sans', sans-serif;
   font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--ink); cursor: pointer;
-  transition: opacity 0.18s, transform 0.15s;
+  color: #fff; cursor: pointer;
+  transition: opacity 0.18s, transform 0.15s, box-shadow 0.18s;
   display: flex; align-items: center; justify-content: center; gap: 10px;
   text-decoration: none;
 }
-.btn:hover { opacity: 0.84; transform: translateY(-1px); }
+.btn:hover { opacity: 0.9; transform: translateY(-1px); }
 .btn:active { transform: translateY(0); }
+.discord-btn {
+  background: #5865F2;
+  font-size: 13px; letter-spacing: 0.08em;
+  padding: 17px;
+  box-shadow: 0 0 24px rgba(88,101,242,0.45);
+}
+.discord-btn:hover { box-shadow: 0 0 36px rgba(88,101,242,0.65); opacity: 1; }
 .legal {
   margin-top: 16px;
   font-size: 11px; color: rgba(244,239,230,0.22); text-align: center; line-height: 1.6;
