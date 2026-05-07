@@ -466,6 +466,8 @@ input:focus { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,
   /* ── VIDEO SCRUB ── */
   const video = document.getElementById('bgVideo');
   video.addEventListener('loadedmetadata', () => {
+    const isMobile = window.matchMedia('(hover: none)').matches;
+    if (isMobile) return; // let it loop freely on touch devices
     video.pause();
     const duration = video.duration;
     function scrub() {
