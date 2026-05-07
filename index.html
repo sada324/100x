@@ -38,6 +38,13 @@ body {
   display: block;
   pointer-events: none;
 }
+.video-bg video::-webkit-media-controls,
+.video-bg video::-webkit-media-controls-panel,
+.video-bg video::-webkit-media-controls-play-button,
+.video-bg video::-webkit-media-controls-start-playback-button {
+  display: none !important;
+  -webkit-appearance: none;
+}
 .video-bg .overlay {
   position: absolute; inset: 0;
   background: linear-gradient(160deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.65) 100%);
@@ -466,8 +473,6 @@ input:focus { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,
   /* ── VIDEO SCRUB ── */
   const video = document.getElementById('bgVideo');
   video.addEventListener('loadedmetadata', () => {
-    const isMobile = window.matchMedia('(hover: none)').matches;
-    if (isMobile) return; // let it loop freely on touch devices
     video.pause();
     const duration = video.duration;
     function scrub() {
