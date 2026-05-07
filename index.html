@@ -351,7 +351,7 @@ input:focus { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,
 <body>
 
 <div class="video-bg">
-  <video id="bgVideo" autoplay muted playsinline loop preload="auto">
+  <video id="bgVideo" autoplay muted playsinline preload="auto">
     <source src="https://raw.githubusercontent.com/sada324/100x/main/hf_20260507_030726_88388908-e478-42fb-8769-09412ffa4e2a.mp4" type="video/mp4">
   </video>
   <canvas id="bgCanvas"></canvas>
@@ -488,11 +488,14 @@ input:focus { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,
   })();
 
   video.addEventListener('loadedmetadata', () => {
+    video.pause();
     const duration = video.duration;
-    window.addEventListener('scroll', () => {
+    function scrub() {
       const progress = Math.min(window.scrollY / (document.body.scrollHeight - window.innerHeight), 1);
       video.currentTime = progress * duration;
-    }, { passive: true });
+    }
+    window.addEventListener('scroll', scrub, { passive: true });
+    scrub();
   });
 
   /* ── REVEAL ON SCROLL ── */
